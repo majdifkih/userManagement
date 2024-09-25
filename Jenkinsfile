@@ -5,8 +5,9 @@ pipeline {
             steps {
                 dir('Client') { 
                     script {
-                        sh 'npm install'
-                        sh 'npm start'
+                        sh ls 
+                        sh 'npm --version'
+                        
                     }
                 }
             }
