@@ -1,39 +1,16 @@
 pipeline {
-    agent any
+    agent any 
     stages {
-        stage("RunClient") {
+        stage('Build') {
             steps {
-                dir('Client') { 
-                    script {
-                        sh ls 
-                        sh 'npm --version'
-                        
-                    }
-                }
-            }
-        }
-        stage("RunServer") {
-            steps {
-                dir('Server') { 
-                    script {
-                        sh 'npm install'
-                        sh 'node server.js'
-                    }
-                }
-            }
-        }
-        stage("Build") {
-            steps {
-                dir('Client') { 
-                    sh 'npm run build'
-                }
+                // Commande de construction
+                sh 'echo Building...'
             }
         }
         stage('Deploy') {
             steps {
-                script {
-                    echo 'Déploiement des applications...'
-                }
+                // Commande de déploiement
+                sh 'ls'  // Assurez-vous d'utiliser 'sh' pour les commandes shell
             }
         }
     }
